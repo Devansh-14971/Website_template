@@ -25,13 +25,14 @@ def get_file_urls_from_folder(repo_owner, repo_name, folder_path, branch="main",
 owner = "Devansh-14971"
 repo = "Website_template"
 branch = "main"
-folder = "Website_template"  # no leading or trailing slash
+folders = ["client", 'server', 'shared']  # no leading or trailing slash
 token = None  # Add GitHub token if needed
 
-urls = get_file_urls_from_folder(owner, repo, folder, branch, token)
-print(f"Found {len(urls)} files in '{folder}/':")
-for url in urls:
-    print(url)
+for folder in folders:
+    urls = get_file_urls_from_folder(owner, repo, folder, branch, token)
+    print(f"Found {len(urls)} files in '{folder}/':")
+    for url in urls:
+        print(url)
 
 # import os
 
