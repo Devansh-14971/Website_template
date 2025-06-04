@@ -8,12 +8,19 @@ import { Express } from "express";
 
 export async function setupAdmin(app: Express) {
   const admin = new AdminJS({
-    // You can add your resources (models) here
     resources: [],
     rootPath: "/admin",
   });
 
-  const router = AdminJSExpress.buildRouter(admin);
+  const router = AdminJSExpress.buildAuthenticatedRouter(admin, {
+    authenticate: async (email, password) => {
+      if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASS) {
+        return { email };
+      }
+      return null;
+    },
+    cookiePassword: process.env.COOKIE_SECRET || "some-secret",
+  });
 
   app.use(admin.options.rootPath, router);
 }

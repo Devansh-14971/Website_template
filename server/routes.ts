@@ -61,7 +61,4 @@ export async function registerRoutes(app: Express): Promise<void> {
       }
     }
   });
-
-  const httpServer = createServer(app);
-  return httpServer;
 }
