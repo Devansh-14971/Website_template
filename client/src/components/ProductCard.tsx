@@ -29,7 +29,7 @@ export default function ProductCard({ title, description, image, certification, 
         <Badge variant="secondary" className="bg-green-100 text-green-800 hover:bg-green-100">
           {certification}
         </Badge>
-        <Button variant="ghost" onClick={onLearnMore} className="text-blue-600 hover:text-blue-700 font-medium">
+        <Button variant="outline" onClick={onLearnMore} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-medium">
           Learn More <ArrowRight className="ml-1 h-4 w-4" />
         </Button>
       </CardFooter>
