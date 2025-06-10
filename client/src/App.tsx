@@ -9,8 +9,11 @@ import ProductsPage from "@/pages/ProductsPage";
 import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
 import NotFound from "@/pages/not-found";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
 function Router() {
+  useScrollToTop();
+  
   return (
     <Layout>
       <Switch>
